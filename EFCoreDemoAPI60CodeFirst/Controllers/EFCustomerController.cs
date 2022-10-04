@@ -6,28 +6,29 @@ namespace EFCoreDemoAPI60CodeFirst.Controllers
     [ApiController]
     public class EFCustomerController : ControllerBase
     {
-        private readonly DataContext context;
+        private readonly DataContext _context;
         public EFCustomerController(DataContext context)
         {
-            this.context = context;
+            _context = context;
         }
 
         //Normally you would not add the whole logic to the controllers
         //Otherwise you would create a constructor function to initialise a service and put the service logic code in another path
 
-
+        //Sescribes the call of the request
+        [Route("GetCustomers")]
         [HttpGet]
         public async Task<ActionResult<List<Customer>>> Get()
         {
             //Returns a response 200 and all customers in the List
-            return Ok(await context.Customers.ToListAsync());
+            return Ok(await _context.Customers.ToListAsync());
         }
 
         //Here you have to write down the parameter
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> Get(int id)
         {
-            var customer = await context.Customers.FindAsync(id);
+            var customer = await _context.Customers.FindAsync(id);
             if (customer == null)
                 //BadRequest if customer is not found
                 return BadRequest("Customer was not found.");
@@ -38,17 +39,17 @@ namespace EFCoreDemoAPI60CodeFirst.Controllers
         [HttpPost]
         public async Task<ActionResult<List<Customer>>> AddCustomer(Customer customer)
         {
-            context.Customers.Add(customer);
-            await context.SaveChangesAsync();
+            _context.Customers.Add(customer);
+            await _context.SaveChangesAsync();
             //Returns a response 200 and all customers in the List
-            return Ok(await context.Customers.ToListAsync());
+            return Ok(await _context.Customers.ToListAsync());
         }
 
         //Here you have to write down the parameter
         [HttpPut("{id}")]
         public async Task<ActionResult<List<Customer>>> UpdateCustomer(Customer request)
         {
-            var dbCustomer = await context.Customers.FindAsync(request.Id);
+            var dbCustomer = await _context.Customers.FindAsync(request.Id);
             if (dbCustomer == null)
                 //BadRequest if customer is not found
                 return BadRequest("Customer was not found.");
@@ -61,26 +62,26 @@ namespace EFCoreDemoAPI60CodeFirst.Controllers
             dbCustomer.Addresses = request.Addresses;
             dbCustomer.EmailAddresses = request.EmailAddresses;
 
-            await context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             //Returns a response 200 and all customers in the List
-            return Ok(await context.Customers.ToListAsync());
+            return Ok(await _context.Customers.ToListAsync());
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<Customer>> Delete(int id)
         {
-            var dbCustomer = await context.Customers.FindAsync(id);
+            var dbCustomer = await _context.Customers.FindAsync(id);
             if (dbCustomer == null)
                 //BadRequest if customer is not found
                 return BadRequest("Customer was not found.");
 
-            context.Customers.Remove(dbCustomer);
+            _context.Customers.Remove(dbCustomer);
 
-            await context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             //Returns a response 200 the requested customer from the List
-            return Ok(await context.Customers.ToListAsync());
+            return Ok(await _context.Customers.ToListAsync());
         }
     }
 }

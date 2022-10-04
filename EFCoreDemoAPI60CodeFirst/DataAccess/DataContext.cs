@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+#nullable disable
+
 namespace EFCoreDemoAPI60CodeFirst.DataAccess
 {
     public class DataContext : DbContext

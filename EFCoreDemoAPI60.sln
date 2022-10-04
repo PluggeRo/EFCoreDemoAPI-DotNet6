@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreDemoAPI60CodeFirst", "EFCoreDemoAPI60CodeFirst\EFCoreDemoAPI60CodeFirst.csproj", "{0FF54D73-CB6A-4401-89BB-43D9381EEE65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreDemoAPI60CodeFirst", "EFCoreDemoAPI60CodeFirst\EFCoreDemoAPI60CodeFirst.csproj", "{0FF54D73-CB6A-4401-89BB-43D9381EEE65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreDemoAPI60DBFirst", "EFCoreDemoAPI60DBFirst\EFCoreDemoAPI60DBFirst.csproj", "{B83C099F-977A-458B-8769-F7FF7CA754D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0FF54D73-CB6A-4401-89BB-43D9381EEE65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FF54D73-CB6A-4401-89BB-43D9381EEE65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FF54D73-CB6A-4401-89BB-43D9381EEE65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B83C099F-977A-458B-8769-F7FF7CA754D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83C099F-977A-458B-8769-F7FF7CA754D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83C099F-977A-458B-8769-F7FF7CA754D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83C099F-977A-458B-8769-F7FF7CA754D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
